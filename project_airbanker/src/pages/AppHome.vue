@@ -27,17 +27,21 @@ export default {
 <template>
   <section class="jumbotron">
     <img
+      data-aos="fade-up"
+      data-aos-duration="1500"
       class="jumbotron-logo"
       src="../../public/AirBanker_Logo.png"
       alt="logo-jumbo"
     />
 
-    <h1 class="main-heading">
+    <h1 class="main-heading" data-aos="fade-up" data-aos-duration="1500">
       Il tuo primo passo nel mondo degli
       <span>investimenti <i class="fa-solid fa-globe"></i></span>.
     </h1>
     <p class="subheading"></p>
-    <button class="cta-btn">Chiedi informazioni</button>
+    <button data-aos="flip-up" data-aos-duration="1500" class="cta-btn">
+      Chiedi informazioni
+    </button>
   </section>
 
   <section class="solution">
@@ -73,11 +77,23 @@ export default {
   </section>
 
   <section class="problems">
-    <div class="left-section">
+    <div
+      data-aos="fade-right"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+      data-aos-duration="1500"
+      class="left-section"
+    >
       <h5>CONOSCIAMO I TUOI PROBLEMI</h5>
       <h1 class="problems-title">La tua finanza semplificata.</h1>
     </div>
-    <div class="right-section">
+    <div
+      data-aos="fade-left"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
+      data-aos-duration="1500"
+      class="right-section"
+    >
       <div class="problems-items">
         <div class="problems-item">
           <h3>70<span>%</span></h3>
