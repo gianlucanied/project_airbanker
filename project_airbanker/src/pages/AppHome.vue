@@ -1,6 +1,26 @@
 <script>
 export default {
   name: "AppHome",
+  mounted() {
+    this.typeWriterEffect();
+  },
+  methods: {
+    typeWriterEffect() {
+      const text =
+        "Scopri come funziona. Senza costi. Senza registrazione. Senza impegno.";
+      let index = 0;
+      const subheading = document.querySelector(".subheading");
+
+      const typingInterval = setInterval(() => {
+        if (index < text.length) {
+          subheading.innerHTML += text.charAt(index);
+          index++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 50); // Cambia il valore per modificare la velocità di scrittura
+    },
+  },
 };
 </script>
 
@@ -16,14 +36,12 @@ export default {
       Il tuo primo passo nel mondo degli
       <span>investimenti <i class="fa-solid fa-globe"></i></span>.
     </h1>
-    <p class="subheading">
-      Scopri come funziona. Senza costi. Senza registrazione. Senza impegno.
-    </p>
+    <p class="subheading"></p>
     <button class="cta-btn">Chiedi informazioni</button>
   </section>
 
   <section class="solution">
-    <h5>Soluzione</h5>
+    <h5>SOLUZIONE</h5>
     <h1 class="solution-title">Rendiamo la finanza semplice, insieme.</h1>
     <p class="solution-description">
       AirBanker sostiene la democrazia finanziaria. Scopri la nostra vision.
@@ -50,6 +68,29 @@ export default {
         <p>
           AirBanker sostiene la democrazia finanziaria. Scopri la nostra vision.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="problems">
+    <div class="left-section">
+      <h5>CONOSCIAMO I TUOI PROBLEMI</h5>
+      <h1 class="problems-title">La tua finanza semplificata.</h1>
+    </div>
+    <div class="right-section">
+      <div class="problems-items">
+        <div class="problems-item">
+          <h3>70<span>%</span></h3>
+          <p>Clienti soddisfatti.</p>
+        </div>
+        <div class="problems-item">
+          <h3>85<span>%</span></h3>
+          <p>Rendimento medio.</p>
+        </div>
+        <div class="problems-item">
+          <h3>90<span>%</span></h3>
+          <p>Investimenti che crescono.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -104,13 +145,21 @@ export default {
 }
 
 .solution {
+  display: flex; /* Abilita Flexbox */
+  flex-direction: column; /* Allinea gli elementi in colonna */
+  justify-content: center; /* Centra verticalmente gli elementi */
+  align-items: center;
   padding: 50px 20px;
   background-color: #5bb7b2;
   color: white;
   text-align: center;
+  height: 100vh;
 
   h3 {
     color: #5bb7b2;
+  }
+  h5 {
+    color: #000018;
   }
 }
 
@@ -123,7 +172,7 @@ export default {
 .solution-description {
   font-size: 1.5rem;
   margin-bottom: 30px;
-  color: white;
+  color: #6c757d;
 }
 
 .solution-items {
@@ -152,5 +201,41 @@ export default {
 .solution-item p {
   font-size: 1.2rem;
   margin-top: 10px;
+}
+
+.problems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Ridotto per adattarsi meglio */
+  background-color: #000018;
+  color: #5bb7b2;
+  height: 100vh; /* Imposta l'altezza a 100vh */
+  flex-direction: row; /* Allinea i div uno accanto all'altro */
+
+  h5,
+  p,
+  span {
+    color: white;
+  }
+}
+
+.left-section {
+  text-align: end;
+}
+
+.left-section,
+.right-section {
+  margin: 0 20px; /* Aggiungi margine per lo spazio tra i div */
+  flex: 1; /* Fai in modo che occupino spazi uguali */
+}
+
+.left-section h1,
+.right-section h3 {
+  font-size: 4rem; /* Aumenta la dimensione del font */
+}
+
+.right-section h3 {
+  font-size: 4rem; /* Aumenta la dimensione del font per i dati */
 }
 </style>
