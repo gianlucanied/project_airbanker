@@ -3,6 +3,7 @@ export default {
   name: "AppHome",
   mounted() {
     this.typeWriterEffect();
+    this.initCounters();
   },
   methods: {
     typeWriterEffect() {
@@ -19,6 +20,38 @@ export default {
           clearInterval(typingInterval);
         }
       }, 50); // Cambia il valore per modificare la velocità di scrittura
+    },
+    initCounters() {
+      const counters = document.querySelectorAll(".problems-item h3 span");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.startCounter(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 } // L'elemento sarà considerato visibile al 50%
+      );
+
+      counters.forEach((counter) => observer.observe(counter));
+    },
+    startCounter(element) {
+      const target = +element.innerText; // Il valore finale del numero
+      let count = 0;
+      const speed = 20; // Velocità dell'incremento
+
+      const updateCount = () => {
+        count += Math.ceil(target / 100); // Aumenta progressivamente
+        if (count < target) {
+          element.innerText = count;
+          setTimeout(updateCount, speed);
+        } else {
+          element.innerText = target; // Imposta il valore finale
+        }
+      };
+
+      updateCount();
     },
   },
 };
@@ -38,10 +71,14 @@ export default {
       Il tuo primo passo nel mondo degli
       <span>investimenti <i class="fa-solid fa-globe"></i></span>.
     </h1>
-    <p class="subheading" data-aos="fade-up" data-aos-duration="1500"></p>
-    <button data-aos="zoom-out" data-aos-duration="1500" class="cta-btn">
-      Chiedi informazioni
-    </button>
+    <div
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="1500"
+    >
+      <p class="subheading" data-aos="fade-up" data-aos-duration="1500"></p>
+      <button class="cta-btn">Chiedi informazioni</button>
+    </div>
   </section>
 
   <section class="solution">
@@ -53,25 +90,12 @@ export default {
     <div class="solution-items">
       <div class="solution-item">
         <h3>Pieno controllo del tuo patrimonio.</h3>
-        <p>
-          Non ti chiederemo mai nessun versamento. Impara a gestire il tuo
-          patrimonio in autonomia e cresci ogni giorno come investitore, un
-          passo alla volta.
-        </p>
       </div>
       <div class="solution-item">
-        <h3>Sei già un investitore?</h3>
-        <p>
-          Scopri se i tuoi rendimenti sono in linea con il mercato. Monitora lo
-          stato di salute del tuo portafoglio e rimani informato sulle sue
-          variazioni. Scopri il servizio.
-        </p>
+        <img src="../../public/logo_3-removebg.png" alt="logo" />
       </div>
       <div class="solution-item">
         <h3>Rendiamo la finanza semplice, insieme.</h3>
-        <p>
-          AirBanker sostiene la democrazia finanziaria. Scopri la nostra vision.
-        </p>
       </div>
     </div>
   </section>
@@ -96,15 +120,15 @@ export default {
     >
       <div class="problems-items">
         <div class="problems-item">
-          <h3>70<span>%</span></h3>
+          <h3><span>70</span>%</h3>
           <p>Clienti soddisfatti.</p>
         </div>
         <div class="problems-item">
-          <h3>85<span>%</span></h3>
+          <h3><span>85</span>%</h3>
           <p>Rendimento medio.</p>
         </div>
         <div class="problems-item">
-          <h3>90<span>%</span></h3>
+          <h3><span>90</span>%</h3>
           <p>Investimenti che crescono.</p>
         </div>
       </div>
@@ -129,7 +153,7 @@ export default {
 }
 
 .main-heading {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 20px;
   font-family: "Inter", sans-serif;
@@ -153,15 +177,22 @@ export default {
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease, transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .cta-btn:hover {
-  background-color: #3b8884;
+  background-color: #5bb7b2;
+  box-shadow: 0 0 25px #5bb7b2;
+  transform: scale(1.3);
+}
+
+.cta-btn:active {
+  transform: scale(1.2);
 }
 
 .solution {
-  display: flex; /* Abilita Flexbox */
+  display: flex;
   flex-direction: column; /* Allinea gli elementi in colonna */
   justify-content: center; /* Centra verticalmente gli elementi */
   align-items: center;
@@ -172,11 +203,20 @@ export default {
   height: 100vh;
 
   h3 {
-    color: #5bb7b2;
+    color: white;
   }
   h5 {
     color: #000018;
   }
+}
+
+.solution-item img {
+  max-width: 100%; /* L'immagine si ridimensiona all'interno del container */
+  height: auto; /* Mantiene le proporzioni corrette */
+  background-color: white; /* Cambia il colore dello sfondo dell'immagine */
+  border-radius: 10px; /* Opzionale, per rendere gli angoli arrotondati */
+  padding: 10px; /* Opzionale, per aggiungere spazio interno */
+  box-sizing: border-box; /* Assicura che padding e bordo siano inclusi nelle dimensioni totali */
 }
 
 .solution-title {
@@ -206,7 +246,9 @@ export default {
   flex: 1;
   min-width: 300px;
   color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .solution-item h3 {

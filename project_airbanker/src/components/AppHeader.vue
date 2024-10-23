@@ -45,6 +45,7 @@ export default {
 
 .buttons-container {
   display: flex;
+  border-left: #5bb7b2 1px solid;
 }
 
 .buttons-container button {
@@ -56,10 +57,17 @@ export default {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease, transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .buttons-container button:hover {
   background-color: #5bb7b2;
+  box-shadow: 0 0 25px #5bb7b2;
+  transform: scale(1.1);
+}
+
+.buttons-container button:active {
+  transform: scale(1);
 }
 </style>
