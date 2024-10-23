@@ -140,9 +140,13 @@ export default {
 .jumbotron {
   text-align: center;
   padding: 100px 20px;
-  background-color: #000018;
+  /* background-color: #000018; */
   color: white;
   height: 100vh;
+  background-image: url("/blurry-gradient-haikei.png");
+  background-size: cover; /* Occupa tutto lo spazio */
+  background-repeat: no-repeat; /* Non si ripete */
+  background-position: center;
 }
 
 .jumbotron-logo {
@@ -166,7 +170,7 @@ export default {
 .subheading {
   font-size: 1.5rem;
   margin-bottom: 40px;
-  color: #6c757d;
+  color: #000018;
 }
 
 .cta-btn {
@@ -269,6 +273,10 @@ export default {
   background-color: #000018;
   color: #5bb7b2;
   height: 100vh; /* Imposta l'altezza a 100vh */
+  background-image: url("/wave-haikei.svg");
+  background-size: cover; /* Occupa tutto lo spazio */
+  background-repeat: no-repeat; /* Non si ripete */
+  background-position: center;
   h5,
   span,
   p {
