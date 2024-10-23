@@ -143,9 +143,9 @@ export default {
   /* background-color: #000018; */
   color: white;
   height: 100vh;
-  background-image: url("/blurry-gradient-haikei.png");
-  background-size: cover; /* Occupa tutto lo spazio */
-  background-repeat: no-repeat; /* Non si ripete */
+  background-image: url("/stacked-peaks-haikei.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 }
 
@@ -170,7 +170,7 @@ export default {
 .subheading {
   font-size: 1.5rem;
   margin-bottom: 40px;
-  color: #000018;
+  color: white;
 }
 
 .cta-btn {
@@ -197,8 +197,8 @@ export default {
 
 .solution {
   display: flex;
-  flex-direction: column; /* Allinea gli elementi in colonna */
-  justify-content: center; /* Centra verticalmente gli elementi */
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 50px 20px;
   background-color: #5bb7b2;
@@ -215,12 +215,12 @@ export default {
 }
 
 .solution-item img {
-  max-width: 100%; /* L'immagine si ridimensiona all'interno del container */
-  height: auto; /* Mantiene le proporzioni corrette */
-  background-color: white; /* Cambia il colore dello sfondo dell'immagine */
-  border-radius: 10px; /* Opzionale, per rendere gli angoli arrotondati */
-  padding: 10px; /* Opzionale, per aggiungere spazio interno */
-  box-sizing: border-box; /* Assicura che padding e bordo siano inclusi nelle dimensioni totali */
+  max-width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .solution-title {
@@ -269,13 +269,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px; /* Ridotto per adattarsi meglio */
+  padding: 20px;
   background-color: #000018;
   color: #5bb7b2;
-  height: 100vh; /* Imposta l'altezza a 100vh */
+  height: 100vh;
   background-image: url("/wave-haikei.svg");
-  background-size: cover; /* Occupa tutto lo spazio */
-  background-repeat: no-repeat; /* Non si ripete */
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   h5,
   span,
@@ -290,16 +290,16 @@ export default {
 
 .left-section,
 .right-section {
-  margin: 0 20px; /* Aggiungi margine per lo spazio tra i div */
-  flex: 1; /* Fai in modo che occupino spazi uguali */
+  margin: 0 20px;
+  flex: 1;
 }
 
 .left-section h1,
 .right-section h3 {
-  font-size: 6rem; /* Aumenta la dimensione del font */
+  font-size: 6rem;
 }
 
 .right-section h3 {
-  font-size: 6rem; /* Aumenta la dimensione del font per i dati */
+  font-size: 6rem;
 }
 </style>
