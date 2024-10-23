@@ -7,9 +7,20 @@ export default {
 <template>
   <nav class="header">
     <div class="logo">
-      <img src="../../public/logo_3-removebg.png" alt="logo" />
+      <img
+        data-aos="fade-right"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-duration="1500"
+        src="../../public/logo_3-removebg.png"
+        alt="logo"
+      />
     </div>
-    <div class="buttons-container">
+    <div
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-duration="1500"
+      class="buttons-container"
+    >
       <button class="info-btn">Chiedi informazioni</button>
       <button class="login-btn">Accedi</button>
       <button class="register-btn">Registrati</button>

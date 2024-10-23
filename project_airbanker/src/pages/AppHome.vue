@@ -38,8 +38,8 @@ export default {
       Il tuo primo passo nel mondo degli
       <span>investimenti <i class="fa-solid fa-globe"></i></span>.
     </h1>
-    <p class="subheading"></p>
-    <button data-aos="flip-up" data-aos-duration="1500" class="cta-btn">
+    <p class="subheading" data-aos="fade-up" data-aos-duration="1500"></p>
+    <button data-aos="zoom-out" data-aos-duration="1500" class="cta-btn">
       Chiedi informazioni
     </button>
   </section>
