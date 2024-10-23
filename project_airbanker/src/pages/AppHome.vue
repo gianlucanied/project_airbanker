@@ -211,11 +211,9 @@ export default {
   background-color: #000018;
   color: #5bb7b2;
   height: 100vh; /* Imposta l'altezza a 100vh */
-  flex-direction: row; /* Allinea i div uno accanto all'altro */
-
   h5,
-  p,
-  span {
+  span,
+  p {
     color: white;
   }
 }
@@ -232,10 +230,10 @@ export default {
 
 .left-section h1,
 .right-section h3 {
-  font-size: 4rem; /* Aumenta la dimensione del font */
+  font-size: 6rem; /* Aumenta la dimensione del font */
 }
 
 .right-section h3 {
-  font-size: 4rem; /* Aumenta la dimensione del font per i dati */
+  font-size: 6rem; /* Aumenta la dimensione del font per i dati */
 }
 </style>
