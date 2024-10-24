@@ -18,7 +18,6 @@ export default {
         },
       ];
 
-      // Usa IntersectionObserver per osservare la visibilità degli elementi
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -26,13 +25,13 @@ export default {
               ({ element }) => element === entry.target
             );
             this.startTypeWriterEffect(text, element);
-            observer.unobserve(entry.target); // Ferma l'osservazione una volta attivato
+            observer.unobserve(entry.target);
           }
         });
       });
 
       texts.forEach(({ element }) => {
-        observer.observe(element); // Osserva gli elementi per l'effetto di scrittura
+        observer.observe(element);
       });
     },
 
@@ -45,7 +44,7 @@ export default {
         } else {
           clearInterval(typingInterval);
         }
-      }, 50); // Cambia la velocità come preferisci
+      }, 50);
     },
 
     initCounters() {
@@ -58,27 +57,53 @@ export default {
             }
           });
         },
-        { threshold: 0.5 } // L'elemento sarà considerato visibile al 50%
+        { threshold: 0.5 }
       );
 
       counters.forEach((counter) => observer.observe(counter));
     },
+
     startCounter(element) {
-      const target = +element.innerText; // Il valore finale del numero
+      const target = +element.innerText;
       let count = 0;
-      const speed = 20; // Velocità dell'incremento
+      const speed = 20;
 
       const updateCount = () => {
-        count += Math.ceil(target / 100); // Aumenta progressivamente
+        count += Math.ceil(target / 100);
         if (count < target) {
           element.innerText = count;
           setTimeout(updateCount, speed);
         } else {
-          element.innerText = target; // Imposta il valore finale
+          element.innerText = target;
         }
       };
 
       updateCount();
+    },
+
+    handleSubmit(event) {
+      event.preventDefault(); // Previene il comportamento di invio predefinito
+      const form = event.target;
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            alert("Messaggio inviato con successo!");
+            form.reset(); // Resetta il modulo dopo l'invio
+          } else {
+            alert("Errore nell'invio del messaggio. Riprova.");
+          }
+        })
+        .catch((error) => {
+          alert("Errore: " + error);
+        });
     },
   },
 };
@@ -180,7 +205,11 @@ export default {
         <h2 class="contact-title">
           <span class="hover-border">Contattaci</span>
         </h2>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
+        <form
+          action="https://formspree.io/f/manyybvw"
+          method="POST"
+          @submit="handleSubmit"
+        >
           <label for="name" data-aos="zoom-in-left" data-aos-duration="1500"
             >Nome</label
           >
