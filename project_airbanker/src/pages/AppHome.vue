@@ -480,7 +480,6 @@ export default {
   right: 0;
   bottom: 0;
   height: 2px;
-  background-color: #000;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -495,7 +494,7 @@ export default {
   bottom: -5px;
   left: 0;
   width: 0;
-  height: 3px;
+  height: 1px;
   background-color: white;
   transition: width 1s ease;
 }
