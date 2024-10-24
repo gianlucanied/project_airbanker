@@ -82,19 +82,25 @@ export default {
   </section>
 
   <section class="solution">
-    <h5>SOLUZIONE</h5>
-    <h1 class="solution-title">Rendiamo la finanza semplice, insieme.</h1>
-    <p class="solution-description">
+    <h5 data-aos="fade-down" data-aos-duration="1500">SOLUZIONE</h5>
+    <h1 class="solution-title" data-aos="fade-down" data-aos-duration="1500">
+      Rendiamo la finanza semplice, insieme.
+    </h1>
+    <p
+      class="solution-description"
+      data-aos="fade-down"
+      data-aos-duration="1500"
+    >
       AirBanker sostiene la democrazia finanziaria. Scopri la nostra vision.
     </p>
     <div class="solution-items">
-      <div class="solution-item">
+      <div class="solution-item" data-aos="fade-left" data-aos-duration="1500">
         <h3>Pieno controllo del tuo patrimonio.</h3>
       </div>
-      <div class="solution-item">
+      <div class="solution-item" data-aos="fade-up" data-aos-duration="1500">
         <img src="../../public/logo_3-removebg.png" alt="logo" />
       </div>
-      <div class="solution-item">
+      <div class="solution-item" data-aos="fade-right" data-aos-duration="1500">
         <h3>Rendiamo la finanza semplice, insieme.</h3>
       </div>
     </div>
@@ -136,29 +142,72 @@ export default {
   </section>
 
   <section class="contact-form-container">
-    <div class="contact-form">
-      <h2>Contattaci</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <label for="name">Nome</label>
-        <input type="text" id="name" name="name" required />
+    <div data-aos="zoom-in-up" data-aos-duration="1500">
+      <div class="contact-form">
+        <h2 data-aos="zoom-in-down" data-aos-duration="1500">Contattaci</h2>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <label for="name" data-aos="zoom-in-left" data-aos-duration="1500"
+            >Nome</label
+          >
+          <input
+            data-aos="zoom-in-left"
+            data-aos-duration="1500"
+            type="text"
+            id="name"
+            name="name"
+            required
+          />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
+          <label for="email" data-aos="zoom-in-right" data-aos-duration="1500"
+            >Email</label
+          >
+          <input
+            data-aos="zoom-in-right"
+            data-aos-duration="1500"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
 
-        <label for="message">Messaggio</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+          <label for="message" data-aos="zoom-in-up" data-aos-duration="1500"
+            >Messaggio</label
+          >
+          <textarea
+            data-aos="zoom-in-up"
+            data-aos-duration="1500"
+            id="message"
+            name="message"
+            rows="5"
+            required
+          ></textarea>
 
-        <button class="cta-btn" type="submit">Invia</button>
-      </form>
+          <div data-aos="zoom-in-down" data-aos-duration="1500">
+            <button class="cta-btn" type="submit">Invia</button>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
-  <section class="banner">
-    <div class="text-banner">
-      Scopri come possiamo aiutarti ad investire i tuoi risparmi.
-    </div>
-    <div class="button-banner">
-      <button>Contattaci</button>
+  <section class="container-fluid banner">
+    <div class="container">
+      <div class="row">
+        <div
+          class="text-banner col-6"
+          data-aos="fade-right"
+          data-aos-duration="1500"
+        >
+          Scopri come possiamo aiutarti ad investire i tuoi risparmi.
+        </div>
+        <div
+          class="button-banner col-6"
+          data-aos="fade-left"
+          data-aos-duration="1500"
+        >
+          <button>Contattaci</button>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -349,11 +398,17 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 30px;
   transition: background-color 0.4s ease, transform 0.4s ease,
     box-shadow 0.4s ease;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Colore bianco con trasparenza del 50% */
+  backdrop-filter: blur(10px); /* Sfoca lo sfondo sottostante */
 }
 
 .contact-form:hover {
-  background-color: #5bb7b2;
-  /* box-shadow: 0 0 25px #5bb7b2; */
+  box-shadow: 0 0 25px #5bb7b2;
   transform: scale(1.1);
 }
 
@@ -396,25 +451,28 @@ export default {
 
 .banner {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   background-color: #000018;
-  height: 500px;
+  height: 400px;
   text-align: center;
+}
+
+.banner .row {
+  display: flex;
+  align-items: center; /* Centra verticalmente il contenuto */
 }
 
 .text-banner {
   font-size: 3rem;
+  font-weight: bold;
   color: white;
-  margin-bottom: 20px;
-  width: 50%;
-  text-align: left;
+  text-align: right;
 }
 
 .button-banner {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .button-banner button {
@@ -423,7 +481,7 @@ export default {
   border: none;
   color: white;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.4s ease, transform 0.4s ease,
     box-shadow 0.4s ease;
