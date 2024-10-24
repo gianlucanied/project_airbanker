@@ -6,6 +6,12 @@ export default {
     this.initTypeWriterObserver(); // Inizializza l'osservatore per l'effetto di scrittura
   },
   methods: {
+    scrollToContact() {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    },
     initTypeWriterObserver() {
       const texts = [
         {
@@ -129,7 +135,9 @@ export default {
       data-aos-duration="1500"
     >
       <p class="subheading" data-aos="fade-up" data-aos-duration="1500"></p>
-      <button class="cta-btn">Chiedi informazioni</button>
+      <button class="cta-btn" @click="scrollToContact">
+        Chiedi informazioni
+      </button>
     </div>
   </section>
 
@@ -199,7 +207,7 @@ export default {
     </div>
   </section>
 
-  <section class="contact-form-container">
+  <section id="contact" class="contact-form-container">
     <div data-aos="zoom-in-up" data-aos-duration="1500">
       <div class="contact-form">
         <h2 class="contact-title">
@@ -270,7 +278,7 @@ export default {
           data-aos="fade-left"
           data-aos-duration="1500"
         >
-          <button>Contattaci</button>
+          <button @click="scrollToContact">Contattaci</button>
         </div>
       </div>
     </div>

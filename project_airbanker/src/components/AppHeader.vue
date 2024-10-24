@@ -1,6 +1,16 @@
 <script>
 export default {
   name: "AppHeader",
+  methods: {
+    // Altri metodi...
+
+    scrollToContact() {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  },
 };
 </script>
 
@@ -21,7 +31,9 @@ export default {
       data-aos-duration="1500"
       class="buttons-container"
     >
-      <button class="info-btn">Chiedi informazioni</button>
+      <button class="info-btn" @click="scrollToContact">
+        Chiedi informazioni
+      </button>
       <button class="login-btn">Accedi</button>
       <button class="register-btn">Registrati</button>
     </div>
