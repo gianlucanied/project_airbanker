@@ -175,7 +175,7 @@ export default {
 
 .cta-btn {
   padding: 10px 20px;
-  background-color: #5bb7b2;
+  background-color: #000018;
   color: white;
   border: none;
   border-radius: 5px;
@@ -186,8 +186,8 @@ export default {
 }
 
 .cta-btn:hover {
-  background-color: #5bb7b2;
-  box-shadow: 0 0 25px #5bb7b2;
+  background-color: #000018;
+  box-shadow: 0 0 25px #000018;
   transform: scale(1.3);
 }
 
@@ -215,11 +215,11 @@ export default {
 }
 
 .solution-item img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
   background-color: white;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 30px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -243,7 +243,6 @@ export default {
 
 .solution-item {
   margin: 0 15px;
-  padding: 30px;
   background-color: #000018;
   border-radius: 30px;
   max-width: 400px;
@@ -257,7 +256,7 @@ export default {
 
 .solution-item h3 {
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin: 30px;
 }
 
 .solution-item p {
