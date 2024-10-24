@@ -487,6 +487,7 @@ export default {
     box-shadow 0.4s ease;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
+  cursor: pointer;
 }
 
 .contact-form:hover {

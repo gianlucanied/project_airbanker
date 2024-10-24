@@ -1,6 +1,6 @@
 <script>
 import { ref } from "vue";
-import VueApexCharts from "vue3-apexcharts"; // Importa ApexCharts
+import VueApexCharts from "vue3-apexcharts";
 
 export default {
   components: {
@@ -17,7 +17,7 @@ export default {
     const lineChartOptions = ref({
       chart: {
         id: "risparmio-chart",
-        height: 400, // Altezza fissa per il grafico
+        height: 400,
       },
       xaxis: {
         categories: [],
