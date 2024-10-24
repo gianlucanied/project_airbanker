@@ -2,25 +2,52 @@
 export default {
   name: "AppHome",
   mounted() {
-    this.typeWriterEffect();
     this.initCounters();
+    this.initTypeWriterObserver(); // Inizializza l'osservatore per l'effetto di scrittura
   },
   methods: {
-    typeWriterEffect() {
-      const text =
-        "Scopri come funziona. Senza costi. Senza registrazione. Senza impegno.";
-      let index = 0;
-      const subheading = document.querySelector(".subheading");
+    initTypeWriterObserver() {
+      const texts = [
+        {
+          text: "Scopri come funziona. Senza costi. Senza registrazione. Senza impegno.",
+          element: document.querySelector(".subheading"),
+        },
+        {
+          text: "Scopri come possiamo aiutarti ad investire i tuoi risparmi.",
+          element: document.querySelector(".banner-text"),
+        },
+      ];
 
+      // Usa IntersectionObserver per osservare la visibilità degli elementi
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const { text, element } = texts.find(
+              ({ element }) => element === entry.target
+            );
+            this.startTypeWriterEffect(text, element);
+            observer.unobserve(entry.target); // Ferma l'osservazione una volta attivato
+          }
+        });
+      });
+
+      texts.forEach(({ element }) => {
+        observer.observe(element); // Osserva gli elementi per l'effetto di scrittura
+      });
+    },
+
+    startTypeWriterEffect(text, element) {
+      let index = 0;
       const typingInterval = setInterval(() => {
         if (index < text.length) {
-          subheading.innerHTML += text.charAt(index);
+          element.innerHTML += text.charAt(index);
           index++;
         } else {
           clearInterval(typingInterval);
         }
-      }, 50); // Cambia il valore per modificare la velocità di scrittura
+      }, 50); // Cambia la velocità come preferisci
     },
+
     initCounters() {
       const counters = document.querySelectorAll(".problems-item h3 span");
       const observer = new IntersectionObserver(
@@ -94,14 +121,20 @@ export default {
       AirBanker sostiene la democrazia finanziaria. Scopri la nostra vision.
     </p>
     <div class="solution-items">
-      <div class="solution-item" data-aos="fade-left" data-aos-duration="1500">
-        <h3>Pieno controllo del tuo patrimonio.</h3>
+      <div data-aos="fade-left" data-aos-duration="1500">
+        <div class="solution-item">
+          <h3>Pieno controllo del tuo patrimonio.</h3>
+        </div>
       </div>
-      <div class="solution-item" data-aos="fade-up" data-aos-duration="1500">
-        <img src="../../public/logo_3-removebg.png" alt="logo" />
+      <div data-aos="fade-up" data-aos-duration="1500">
+        <div class="solution-item">
+          <img src="../../public/logo_3-removebg.png" alt="logo" />
+        </div>
       </div>
-      <div class="solution-item" data-aos="fade-right" data-aos-duration="1500">
-        <h3>Rendiamo la finanza semplice, insieme.</h3>
+      <div data-aos="fade-right" data-aos-duration="1500">
+        <div class="solution-item">
+          <h3>Rendiamo la finanza semplice, insieme.</h3>
+        </div>
       </div>
     </div>
   </section>
@@ -144,7 +177,9 @@ export default {
   <section class="contact-form-container">
     <div data-aos="zoom-in-up" data-aos-duration="1500">
       <div class="contact-form">
-        <h2 data-aos="zoom-in-down" data-aos-duration="1500">Contattaci</h2>
+        <h2 class="contact-title">
+          <span class="hover-border">Contattaci</span>
+        </h2>
         <form action="https://formspree.io/f/your-form-id" method="POST">
           <label for="name" data-aos="zoom-in-left" data-aos-duration="1500"
             >Nome</label
@@ -198,8 +233,9 @@ export default {
           data-aos="fade-right"
           data-aos-duration="1500"
         >
-          Scopri come possiamo aiutarti ad investire i tuoi risparmi.
+          <p class="banner-text"></p>
         </div>
+
         <div
           class="button-banner col-6"
           data-aos="fade-left"
@@ -328,6 +364,20 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: background-color 0.4s ease, transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.solution-item:nth-child(1),
+.solution-item:nth-child(3) {
+  padding: 25px;
+}
+
+.solution-item:hover {
+  background-color: #000018;
+  box-shadow: 0 0 25px #000018;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .solution-item h3 {
@@ -398,13 +448,8 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 30px;
   transition: background-color 0.4s ease, transform 0.4s ease,
     box-shadow 0.4s ease;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); /* Colore bianco con trasparenza del 50% */
-  backdrop-filter: blur(10px); /* Sfoca lo sfondo sottostante */
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .contact-form:hover {
@@ -412,10 +457,36 @@ export default {
   transform: scale(1.1);
 }
 
-.contact-form h2 {
+/* .contact-form h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   position: relative;
+} */
+
+.contact-title {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-border {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.hover-border:hover::after {
+  transform: scaleX(1);
 }
 
 .contact-form h2::after {
@@ -461,7 +532,7 @@ export default {
 
 .banner .row {
   display: flex;
-  align-items: center; /* Centra verticalmente il contenuto */
+  align-items: center;
 }
 
 .text-banner {
