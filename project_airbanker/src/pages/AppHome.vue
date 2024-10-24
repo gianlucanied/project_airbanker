@@ -134,6 +134,33 @@ export default {
       </div>
     </div>
   </section>
+
+  <section class="contact-form-container">
+    <div class="contact-form">
+      <h2>Contattaci</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Messaggio</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button class="cta-btn" type="submit">Invia</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div class="text-banner">
+      Scopri come possiamo aiutarti ad investire i tuoi risparmi.
+    </div>
+    <div class="button-banner">
+      <button>Contattaci</button>
+    </div>
+  </section>
 </template>
 
 <style scoped>
@@ -300,5 +327,115 @@ export default {
 
 .right-section h3 {
   font-size: 6rem;
+}
+
+.contact-form-container {
+  height: 100vh;
+  background-image: url("/blob-scene-haikei.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 100px;
+}
+
+.contact-form {
+  background-color: #5bb7b2;
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 30px;
+  transition: background-color 0.4s ease, transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.contact-form:hover {
+  background-color: #5bb7b2;
+  /* box-shadow: 0 0 25px #5bb7b2; */
+  transform: scale(1.1);
+}
+
+.contact-form h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.contact-form h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  transition: width 1s ease;
+}
+
+.contact-form:hover h2::after {
+  width: 100%;
+}
+
+.contact-form label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #000018;
+  height: 500px;
+  text-align: center;
+}
+
+.text-banner {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 20px;
+  width: 50%;
+  text-align: left;
+}
+
+.button-banner {
+  display: flex;
+  justify-content: center;
+}
+
+.button-banner button {
+  padding: 10px 20px;
+  background-color: #5bb7b2;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.button-banner button:hover {
+  background-color: #5bb7b2;
+  box-shadow: 0 0 50px #5bb7b2;
+  transform: scale(1.1);
+}
+
+.button-banner button:active {
+  transform: scale(1);
 }
 </style>
