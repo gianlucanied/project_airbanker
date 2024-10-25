@@ -2,12 +2,6 @@
   <section class="chart">
     <h1 class="text-center">Simulatore Rendimenti</h1>
     <div class="container-chart">
-      <apexchart
-        type="line"
-        :series="series"
-        :options="chartOptions"
-        style="height: 400px"
-      />
       <div class="input-container">
         <label>Età attuale: {{ age }} anni</label>
         <input
@@ -27,18 +21,27 @@
           @input="updateChart"
         />
       </div>
+      <apexchart
+        type="line"
+        :series="series"
+        :options="chartOptions"
+        style="height: 400px"
+      />
+
       <div class="x-axis-label">
-        <span>La tua età: {{ age }}</span>
-        <span>Risparmio totale: €{{ totalSavings }}</span>
-        <span
+        <span class="info-chart"
+          >Investimento passivo: €{{ passiveIncome }}</span
+        >
+        <span class="info-chart"
+          >Conto di risparmio: €{{ savingsAccountIncome }}</span
+        >
+        <span class="info-chart"
           >Guadagno rispetto al conto di risparmio: €{{
             passiveIncome - savingsAccountIncome
           }}</span
         >
-      </div>
-      <div class="data-info">
-        <span>Investimento passivo: €{{ passiveIncome }}</span>
-        <span>Conto di risparmio: €{{ savingsAccountIncome }}</span>
+        <!-- <span>La tua età: {{ age }}</span>
+        <span>Risparmio totale: €{{ totalSavings }}</span> -->
       </div>
     </div>
   </section>
@@ -87,7 +90,7 @@ export default {
         },
       },
       grid: { borderColor: "rgba(255, 255, 255, 0.2)" },
-      stroke: { curve: "straight", width: 2, colors: ["#ffffff"] },
+      stroke: { curve: "straight", width: 2, colors: ["#5bb7b2", "#000018"] },
       dataLabels: { enabled: false },
       tooltip: { enabled: false },
       legend: {
@@ -96,7 +99,13 @@ export default {
         horizontalAlign: "center",
         fontSize: "16px",
         labels: {
-          colors: "#1A1A1A",
+          colors: "white",
+        },
+        markers: {
+          fillColors: ["#5bb7b2", "#000018"], // Colori personalizzati per i pallini
+          width: 12, // Dimensione dei pallini
+          height: 12,
+          radius: 12, // Rende i pallini rotondi
         },
       },
     });
@@ -229,13 +238,40 @@ export default {
   cursor: pointer;
 }
 
-.x-axis-label,
-.data-info {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 16px;
-  color: white;
+.x-axis-label {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background: linear-gradient(
+    45deg,
+    rgba(91, 183, 178, 0.7),
+    rgba(0, 0, 24, 0.7)
+  );
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* .x-axis-label:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(91, 183, 178, 0.5);
+} */
+
+.info-chart {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.info-chart:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 </style>
