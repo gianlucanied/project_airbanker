@@ -57,7 +57,7 @@ export default {
       <div class="process__accordions">
         <ul
           class="accordions__list"
-          data-aos="zoom-in-down"
+          data-aos="flip-up"
           data-aos-duration="1500"
         >
           <li
