@@ -1,47 +1,51 @@
 <template>
   <section class="chart">
-    <h1 class="text-center">Simulatore Rendimenti</h1>
-    <div class="container-chart">
-      <div class="input-container">
-        <label>Età attuale: {{ age }} anni</label>
-        <input
-          type="range"
-          v-model="age"
-          min="18"
-          max="67"
-          @input="updateChart"
+    <h1 class="text-center" data-aos="zoom-in-up" data-aos-duration="1500">
+      Simulatore Rendimenti
+    </h1>
+    <div data-aos="zoom-in-down" data-aos-duration="1500">
+      <div class="container-chart">
+        <div class="input-container">
+          <label>Età attuale: {{ age }} anni</label>
+          <input
+            type="range"
+            v-model="age"
+            min="18"
+            max="67"
+            @input="updateChart"
+          />
+          <label>Risparmio mensile (€): {{ monthlySaving }}</label>
+          <input
+            type="range"
+            v-model="monthlySaving"
+            min="0"
+            max="1000"
+            step="50"
+            @input="updateChart"
+          />
+        </div>
+        <apexchart
+          type="line"
+          :series="series"
+          :options="chartOptions"
+          style="height: 400px"
         />
-        <label>Risparmio mensile (€): {{ monthlySaving }}</label>
-        <input
-          type="range"
-          v-model="monthlySaving"
-          min="0"
-          max="1000"
-          step="50"
-          @input="updateChart"
-        />
-      </div>
-      <apexchart
-        type="line"
-        :series="series"
-        :options="chartOptions"
-        style="height: 400px"
-      />
 
-      <div class="x-axis-label">
-        <span class="info-chart"
-          >Investimento passivo: €{{ passiveIncome }}</span
-        >
-        <span class="info-chart"
-          >Conto di risparmio: €{{ savingsAccountIncome }}</span
-        >
-        <span class="info-chart"
-          >Guadagno rispetto al conto di risparmio: €{{
-            passiveIncome - savingsAccountIncome
-          }}</span
-        >
-        <!-- <span>La tua età: {{ age }}</span>
+        <div class="x-axis-label">
+          <span class="info-chart"
+            >Investimento passivo: €{{ passiveIncome }}</span
+          >
+          <span class="info-chart"
+            >Conto di risparmio: €{{ savingsAccountIncome }}</span
+          >
+          <span class="info-chart"
+            >Guadagno rispetto al conto di risparmio: €{{
+              passiveIncome - savingsAccountIncome
+            }}</span
+          >
+          <!-- <span>La tua età: {{ age }}</span>
         <span>Risparmio totale: €{{ totalSavings }}</span> -->
+        </div>
       </div>
     </div>
   </section>
@@ -159,7 +163,7 @@ export default {
   background-image: url("/blob-scene-haikei(1).svg");
   background-size: cover;
   background-position: center;
-  padding: 35px;
+  padding: 100px;
   color: white;
   text-align: center;
   border: none;

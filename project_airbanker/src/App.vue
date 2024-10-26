@@ -1,5 +1,6 @@
 <script>
 import AppChart from "./components/AppChart.vue";
+import AppFAQ from "./components/AppFAQ.vue";
 import AppFooter from "./components/AppFooter.vue";
 import AppHeader from "./components/AppHeader.vue";
 
@@ -8,6 +9,7 @@ export default {
     AppHeader,
     AppFooter,
     AppChart,
+    AppFAQ,
   },
 };
 </script>
@@ -18,6 +20,7 @@ export default {
     <router-view></router-view>
   </main>
   <AppChart />
+  <AppFAQ />
   <AppFooter />
 </template>
 
