@@ -3,6 +3,7 @@ import AppChart from "./components/AppChart.vue";
 import AppFAQ from "./components/AppFAQ.vue";
 import AppFooter from "./components/AppFooter.vue";
 import AppHeader from "./components/AppHeader.vue";
+import AppPhotoGallery from "./components/AppPhotoGallery.vue";
 
 export default {
   components: {
@@ -10,6 +11,7 @@ export default {
     AppFooter,
     AppChart,
     AppFAQ,
+    AppPhotoGallery,
   },
 };
 </script>
@@ -21,6 +23,7 @@ export default {
   </main>
   <AppChart />
   <AppFAQ />
+  <AppPhotoGallery />
   <AppFooter />
 </template>
 
