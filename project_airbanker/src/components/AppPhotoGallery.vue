@@ -52,10 +52,18 @@ export default {
   height: 200px;
   background: #000;
   transform: rotate(45deg);
-  transition: 0.5s;
+  transition: transform 0.5s ease;
   margin: -100px;
   overflow: hidden;
-  opacity: 0.5;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.main-nav li:hover {
+  transform: rotate(45deg) scale(1.1); /* Aumenta la grandezza dell’intero li */
 }
 
 .main-nav li:hover {
@@ -94,7 +102,7 @@ export default {
 }
 
 .main-nav li.item1 .bg {
-  background: url("/Ph-AirBanker/maneken-11AU096.jpg");
+  background: url("/Ph-AirBanker/maneken-MOLLY01.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -106,7 +114,7 @@ export default {
 }
 
 .main-nav li.item3 .bg {
-  background: url("/Ph-AirBanker/maneken-MOLLY01.jpg");
+  background: url("/Ph-AirBanker/maneken-11AU096.jpg");
   background-size: cover;
   background-position: center;
 }
