@@ -3,7 +3,7 @@ export default {
   name: "AppHome",
   mounted() {
     this.initCounters();
-    this.initTypeWriterObserver(); // Inizializza l'osservatore per l'effetto di scrittura
+    this.initTypeWriterObserver();
   },
   methods: {
     scrollToContact() {
@@ -88,7 +88,7 @@ export default {
     },
 
     handleSubmit(event) {
-      event.preventDefault(); // Previene il comportamento di invio predefinito
+      event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
 
@@ -102,7 +102,7 @@ export default {
         .then((response) => {
           if (response.ok) {
             alert("Messaggio inviato con successo!");
-            form.reset(); // Resetta il modulo dopo l'invio
+            form.reset();
           } else {
             alert("Errore nell'invio del messaggio. Riprova.");
           }
