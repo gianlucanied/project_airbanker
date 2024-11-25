@@ -349,11 +349,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  padding: 100px 20px;
   background-color: #5bb7b2;
   color: white;
   text-align: center;
-  height: 100vh;
+  height: auto;
 
   h3 {
     color: white;
@@ -603,5 +603,66 @@ export default {
 
 .button-banner button:active {
   transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+  }
+
+  .solution-title,
+  .problems-title {
+    font-size: 2rem;
+  }
+
+  .solution-description {
+    font-size: 1rem;
+  }
+
+  .solution-item h3,
+  .problems-item h3 {
+    font-size: 1.8rem;
+  }
+
+  .problems-item p {
+    font-size: 1.1rem;
+  }
+
+  .cta-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .problems {
+    display: flex;
+
+    justify-content: space-around;
+    h5 {
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.solution-items,
+.problems-items {
+  flex-direction: column;
+  align-items: center;
+}
+
+.solution-item,
+.problems-item {
+  margin-bottom: 20px;
 }
 </style>
