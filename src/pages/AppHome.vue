@@ -653,6 +653,10 @@ export default {
       font-size: 1.8rem;
     }
   }
+
+  .contact-form-container {
+    padding: 100px 30px;
+  }
 }
 
 .solution-items,
