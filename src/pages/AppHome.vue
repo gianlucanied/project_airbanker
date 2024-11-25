@@ -650,11 +650,11 @@ export default {
     flex-direction: column;
     justify-content: space-around;
     h5 {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     .left-section {
@@ -663,6 +663,9 @@ export default {
 
     .right-section {
       padding-top: 30px;
+      h3 {
+        font-size: 3rem;
+      }
     }
   }
 
