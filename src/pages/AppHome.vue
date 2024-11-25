@@ -672,6 +672,21 @@ export default {
   .contact-form-container {
     padding: 100px 30px;
   }
+
+  .banner {
+    height: auto;
+    padding: 50px 0;
+  }
+
+  .row {
+    flex-direction: column;
+
+    .banner-text {
+      font-size: 2rem;
+      padding-bottom: 30px;
+      text-align: left;
+    }
+  }
 }
 
 .problems-items {
