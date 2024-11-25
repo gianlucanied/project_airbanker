@@ -431,10 +431,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 50px 0;
   background-color: #000018;
   color: #5bb7b2;
-  height: 100vh;
+  height: auto;
   background-image: url("/wave-haikei.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -614,6 +614,10 @@ export default {
     font-size: 1rem;
   }
 
+  .solution-item {
+    margin-bottom: 20px;
+  }
+
   .solution-title,
   .problems-title {
     font-size: 2rem;
@@ -643,7 +647,7 @@ export default {
 
   .problems {
     display: flex;
-
+    flex-direction: column;
     justify-content: space-around;
     h5 {
       font-size: 0.9rem;
@@ -652,6 +656,14 @@ export default {
     h1 {
       font-size: 1.8rem;
     }
+
+    .left-section {
+      text-align: center;
+    }
+
+    .right-section {
+      padding-top: 30px;
+    }
   }
 
   .contact-form-container {
@@ -659,13 +671,11 @@ export default {
   }
 }
 
-.solution-items,
 .problems-items {
   flex-direction: column;
   align-items: center;
 }
 
-.solution-item,
 .problems-item {
   margin-bottom: 20px;
 }
