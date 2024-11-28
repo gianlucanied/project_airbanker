@@ -466,12 +466,12 @@ export default {
 }
 
 .contact-form-container {
-  height: 100vh;
+  height: auto;
   background-image: url("/blob-scene-haikei.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 100px;
+  padding: 150px 0;
 }
 
 .contact-form {
