@@ -57,12 +57,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Trasparente */
+  background-color: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid #5bb7b2;
   position: relative;
   z-index: 1000;
-  backdrop-filter: blur(8px); /* Effetto sfocato */
-  border-radius: 10px;
+  backdrop-filter: blur(8px);
 }
 
 .logo img {
@@ -101,7 +100,7 @@ export default {
   background-color: #000018;
   border: none;
   color: white;
-  border-radius: 10px; /* Bordi arrotondati */
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.4s ease, transform 0.4s ease,
