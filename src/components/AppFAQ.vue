@@ -214,7 +214,7 @@ h6 {
   background-image: url("/wave-haikei(2).svg");
   background-size: cover;
   background-position: center;
-  padding: 100px;
+  padding: 100px 0;
 }
 
 @media (max-width: 767.98) {
