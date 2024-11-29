@@ -674,7 +674,7 @@ export default {
   }
 
   .banner {
-    height: auto;
+    height: 550px;
     padding: 50px 0;
   }
 
