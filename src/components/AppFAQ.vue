@@ -215,6 +215,7 @@ h6 {
   background-size: cover;
   background-position: center;
   padding: 100px 0;
+  border: none;
 }
 
 @media (max-width: 767.98) {

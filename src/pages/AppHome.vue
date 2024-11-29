@@ -431,7 +431,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  padding: 100px 0;
   background-color: #000018;
   color: #5bb7b2;
   height: auto;
