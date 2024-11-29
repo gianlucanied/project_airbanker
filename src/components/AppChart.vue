@@ -1,56 +1,3 @@
-<template>
-  <section class="chart">
-    <h1 class="text-center" data-aos="zoom-in-up" data-aos-duration="1500">
-      Simulatore Rendimenti
-    </h1>
-    <div data-aos="zoom-in-down" data-aos-duration="1500">
-      <div class="container-chart">
-        <div class="input-container">
-          <label>Età attuale: {{ age }} anni</label>
-          <input
-            type="range"
-            v-model="age"
-            min="18"
-            max="67"
-            @input="updateChart"
-          />
-          <label>Risparmio mensile (€): {{ monthlySaving }}</label>
-          <input
-            type="range"
-            v-model="monthlySaving"
-            min="0"
-            max="1000"
-            step="50"
-            @input="updateChart"
-          />
-        </div>
-        <apexchart
-          type="line"
-          :series="series"
-          :options="chartOptions"
-          style="height: 400px"
-        />
-
-        <div class="x-axis-label">
-          <span class="info-chart"
-            >Investimento passivo: €{{ passiveIncome }}</span
-          >
-          <span class="info-chart"
-            >Conto di risparmio: €{{ savingsAccountIncome }}</span
-          >
-          <span class="info-chart"
-            >Guadagno rispetto al conto di risparmio: €{{
-              passiveIncome - savingsAccountIncome
-            }}</span
-          >
-          <!-- <span>La tua età: {{ age }}</span>
-        <span>Risparmio totale: €{{ totalSavings }}</span> -->
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script>
 import { ref, watch, computed } from "vue";
 import VueApexCharts from "vue3-apexcharts";
@@ -156,28 +103,88 @@ export default {
 };
 </script>
 
+<template>
+  <section class="chart">
+    <h1 class="text-center" data-aos="zoom-in-up" data-aos-duration="1500">
+      Simulatore Rendimenti
+    </h1>
+    <div data-aos="zoom-in-down" data-aos-duration="1500">
+      <div class="container-chart">
+        <!-- Contenitore degli input -->
+        <div class="input-container">
+          <div class="input-group">
+            <label>Età attuale: {{ age }} anni</label>
+            <input
+              type="range"
+              v-model="age"
+              min="18"
+              max="67"
+              @input="updateChart"
+            />
+          </div>
+          <div class="input-group">
+            <label>Risparmio mensile (€): {{ monthlySaving }}</label>
+            <input
+              type="range"
+              v-model="monthlySaving"
+              min="0"
+              max="1000"
+              step="50"
+              @input="updateChart"
+            />
+          </div>
+        </div>
+
+        <!-- Grafico -->
+        <apexchart
+          type="line"
+          :series="series"
+          :options="chartOptions"
+          style="height: 250px; width: 100%"
+        />
+
+        <!-- Etichette sotto il grafico -->
+        <div class="x-axis-label">
+          <span class="info-chart"
+            >Investimento passivo: €{{ passiveIncome }}</span
+          >
+          <span class="info-chart"
+            >Conto di risparmio: €{{ savingsAccountIncome }}</span
+          >
+          <span class="info-chart"
+            >Guadagno rispetto al conto di risparmio: €{{
+              passiveIncome - savingsAccountIncome
+            }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
 <style scoped>
+/* Sezione principale */
 .chart {
-  height: auto;
   width: 100%;
   background-image: url("/blob-scene-haikei(1).svg");
   background-size: cover;
   background-position: center;
-  padding: 100px;
+  padding: 100px 20px;
   color: white;
   text-align: center;
-  border: none;
+  margin: 0;
 }
 
 .chart h1 {
   color: white;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
+/* Contenitore del grafico */
 .container-chart {
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
@@ -185,97 +192,75 @@ export default {
   max-width: 800px;
   backdrop-filter: blur(12px);
   color: white;
-  transition: background-color 0.4s ease, transform 0.4s ease,
-    box-shadow 0.4s ease;
 }
 
-.container-chart:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 50px #5bb7b2;
-}
-
+/* Input range */
 .input-container {
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.input-container label {
-  color: white;
-  display: block;
-  margin: 10px 0 5px;
+.input-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.input-container input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  outline: none;
+.input-group label {
+  margin-bottom: 10px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.input-container input:focus {
-  border-color: #5bb7b2;
-  box-shadow: 0 0 10px rgba(91, 183, 178, 0.5);
 }
 
 .input-container input[type="range"] {
   width: 100%;
-  margin: 10px 0;
-  appearance: none;
   height: 8px;
+  appearance: none;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   cursor: pointer;
 }
 
-.input-container input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  height: 16px;
-  width: 16px;
-  background-color: #5bb7b2;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
+/* Etichette sotto il grafico */
 .x-axis-label {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
   padding: 15px;
   margin-top: 20px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #ffffff;
-  background: linear-gradient(
-    45deg,
-    rgba(91, 183, 178, 0.7),
-    rgba(0, 0, 24, 0.7)
-  );
+  background: rgba(91, 183, 178, 0.7);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* .x-axis-label:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(91, 183, 178, 0.5);
-} */
 
 .info-chart {
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 8px 12px;
+  margin: 5px 0;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  transition: background 0.3s ease;
 }
 
-.info-chart:hover {
-  background: rgba(255, 255, 255, 0.3);
+/* Responsività */
+@media (max-width: 768px) {
+  .chart h1 {
+    font-size: 2rem;
+  }
+
+  .container-chart {
+    padding: 15px;
+  }
+
+  .x-axis-label {
+    font-size: 0.9rem;
+  }
+
+  .input-container {
+    gap: 10px;
+  }
+
+  .input-group label {
+    font-size: 0.9rem;
+  }
 }
 </style>
